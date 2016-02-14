@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		845D80A51C6F418800604B48 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D80A41C6F418800604B48 /* Constants.swift */; };
 		845D80A71C6F441F00604B48 /* MusicVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D80A61C6F441F00604B48 /* MusicVideo.swift */; };
+		846286761C70C64100789D0C /* MusicVideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846286751C70C64100789D0C /* MusicVideoTableViewCell.swift */; };
 		847876BF1C6C8D42006682B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847876BE1C6C8D42006682B8 /* AppDelegate.swift */; };
 		847876C11C6C8D42006682B8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847876C01C6C8D42006682B8 /* ViewController.swift */; };
 		847876C41C6C8D42006682B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 847876C21C6C8D42006682B8 /* Main.storyboard */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		845D80A41C6F418800604B48 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		845D80A61C6F441F00604B48 /* MusicVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicVideo.swift; sourceTree = "<group>"; };
+		846286751C70C64100789D0C /* MusicVideoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicVideoTableViewCell.swift; sourceTree = "<group>"; };
 		847876BB1C6C8D42006682B8 /* MusicVideo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicVideo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		847876BE1C6C8D42006682B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		847876C01C6C8D42006682B8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				847876EC1C6CCF39006682B8 /* Model */,
 				847876BE1C6C8D42006682B8 /* AppDelegate.swift */,
 				847876C01C6C8D42006682B8 /* ViewController.swift */,
+				846286751C70C64100789D0C /* MusicVideoTableViewCell.swift */,
 				847876C21C6C8D42006682B8 /* Main.storyboard */,
 				847876C51C6C8D42006682B8 /* Assets.xcassets */,
 				847876C71C6C8D42006682B8 /* LaunchScreen.storyboard */,
@@ -304,6 +307,7 @@
 				845D80A71C6F441F00604B48 /* MusicVideo.swift in Sources */,
 				847876BF1C6C8D42006682B8 /* AppDelegate.swift in Sources */,
 				84BDA1D21C703654007D960C /* Reachability.m in Sources */,
+				846286761C70C64100789D0C /* MusicVideoTableViewCell.swift in Sources */,
 				845D80A51C6F418800604B48 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
