@@ -70,6 +70,7 @@ class Videos {
     
     
     init(data: JSONDictionary) {
+
         
         // Video name
         if let name = data["im:name"] as? JSONDictionary,
@@ -78,6 +79,7 @@ class Videos {
         } else {
             _vName = ""
         }
+        
         
         // Video image
         if let img = data["im:image"] as? JSONArray,
@@ -117,13 +119,14 @@ class Videos {
         
         
         // The Artist Name
+
         if let artist = data["im:artist"] as? JSONDictionary,
             vArtist = artist["label"] as? String {
                 self._vArtist = vArtist
         } else {
             _vArtist = ""
         }
-        
+
         
         // Artist ID
         if let imid = data["id"] as? JSONDictionary,
@@ -160,6 +163,7 @@ class Videos {
         } else {
             _vReleaseDte = ""
         }
-        
+
+
     }
 }
