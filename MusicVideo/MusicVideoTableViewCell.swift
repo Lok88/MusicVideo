@@ -25,9 +25,34 @@ class MusicVideoTableViewCell: UITableViewCell {
     func updateCell() {
         musicTitle.text = video?.vName
         rank.text = ("\(video!.vRank)")
-        musicImage.image = UIImage(named: "cat")
+        // musicImage.image = UIImage(named: "cat")
         
+        if video!.vImageData != nil {
+            print("Get data from array ...")
+            musicImage.image = UIImage(data: video!.vImageData!)
+        } else {
+            getVideoImage(video!, imageView: musicImage)
+        }
     }
+    
+    
+    func getVideoImage(video: Videos, imageView: UIImageView) {
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+            
+            let data = NSData(contentsOfURL: NSURL(string: video.vImageUrl)!)
+            var image: UIImage?
+            if data != nil {
+                video.vImageData = data
+                image = UIImage(data: data!)
+            }
+            
+            dispatch_async(dispatch_get_main_queue()) {
+                imageView.image = image
+            }
+        }
+    }
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

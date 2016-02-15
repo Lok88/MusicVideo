@@ -27,34 +27,34 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7Ij-sd-WMQ">
                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                                                 <subviews>
-                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Og0-Ve-qQx">
+                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="131" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Og0-Ve-qQx">
                                                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <prototypes>
-                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" rowHeight="132" id="rxJ-PZ-246" customClass="MusicVideoTableViewCell" customModule="MusicVideo" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="92" width="600" height="132"/>
+                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" rowHeight="131" id="rxJ-PZ-246" customClass="MusicVideoTableViewCell" customModule="MusicVideo" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="92" width="600" height="131"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rxJ-PZ-246" id="b4d-D9-tTh">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="131"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="130"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7hH-yh-qj9">
                                                                             <rect key="frame" x="8" y="8" width="180" height="115"/>
                                                                             <constraints>
-                                                                                <constraint firstAttribute="width" constant="180" id="Nxd-SO-2yM"/>
+                                                                                <constraint firstAttribute="width" constant="180" id="Hhv-sx-BdF"/>
                                                                             </constraints>
                                                                         </imageView>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="rank" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PBi-iS-QMl">
                                                                             <rect key="frame" x="196" y="8" width="42" height="21"/>
                                                                             <constraints>
-                                                                                <constraint firstAttribute="width" constant="42" id="WFU-0F-aGw"/>
-                                                                                <constraint firstAttribute="height" constant="21" id="giG-UW-7gZ"/>
+                                                                                <constraint firstAttribute="height" constant="21" id="2P1-v8-sAa"/>
+                                                                                <constraint firstAttribute="width" constant="42" id="dAk-Wz-V4f"/>
                                                                             </constraints>
                                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="musicTitle" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VVd-46-hhy">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="musicTitle" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VVd-46-hhy">
                                                                             <rect key="frame" x="196" y="37" width="396" height="86"/>
                                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -63,15 +63,15 @@
                                                                     </subviews>
                                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <constraints>
-                                                                        <constraint firstItem="PBi-iS-QMl" firstAttribute="leading" secondItem="VVd-46-hhy" secondAttribute="leading" id="4jL-Xk-s5S"/>
-                                                                        <constraint firstItem="PBi-iS-QMl" firstAttribute="leading" secondItem="7hH-yh-qj9" secondAttribute="trailing" constant="8" symbolic="YES" id="BL5-Tk-JbQ"/>
-                                                                        <constraint firstItem="7hH-yh-qj9" firstAttribute="bottom" secondItem="VVd-46-hhy" secondAttribute="bottom" id="DTl-WV-Yf0"/>
-                                                                        <constraint firstItem="7hH-yh-qj9" firstAttribute="top" secondItem="b4d-D9-tTh" secondAttribute="topMargin" id="HxJ-mr-J7t"/>
-                                                                        <constraint firstItem="7hH-yh-qj9" firstAttribute="leading" secondItem="b4d-D9-tTh" secondAttribute="leadingMargin" id="LfY-2T-PPg"/>
-                                                                        <constraint firstItem="VVd-46-hhy" firstAttribute="bottom" secondItem="b4d-D9-tTh" secondAttribute="bottomMargin" id="LtO-UH-J2G"/>
-                                                                        <constraint firstItem="7hH-yh-qj9" firstAttribute="top" secondItem="PBi-iS-QMl" secondAttribute="top" id="V6R-rR-Niw"/>
-                                                                        <constraint firstItem="VVd-46-hhy" firstAttribute="trailing" secondItem="b4d-D9-tTh" secondAttribute="trailingMargin" id="YOe-fH-ZWb"/>
-                                                                        <constraint firstItem="VVd-46-hhy" firstAttribute="top" secondItem="PBi-iS-QMl" secondAttribute="bottom" constant="8" symbolic="YES" id="y14-eN-gCO"/>
+                                                                        <constraint firstItem="7hH-yh-qj9" firstAttribute="leading" secondItem="b4d-D9-tTh" secondAttribute="leadingMargin" id="TSw-q9-fzQ"/>
+                                                                        <constraint firstItem="VVd-46-hhy" firstAttribute="leading" secondItem="PBi-iS-QMl" secondAttribute="leading" id="XcD-9N-q2L"/>
+                                                                        <constraint firstItem="VVd-46-hhy" firstAttribute="trailing" secondItem="b4d-D9-tTh" secondAttribute="trailingMargin" id="chk-BA-7x2"/>
+                                                                        <constraint firstItem="PBi-iS-QMl" firstAttribute="top" secondItem="b4d-D9-tTh" secondAttribute="topMargin" id="f5C-YM-mrL"/>
+                                                                        <constraint firstItem="PBi-iS-QMl" firstAttribute="leading" secondItem="7hH-yh-qj9" secondAttribute="trailing" constant="8" symbolic="YES" id="iYo-pj-GsR"/>
+                                                                        <constraint firstItem="VVd-46-hhy" firstAttribute="bottom" secondItem="7hH-yh-qj9" secondAttribute="bottom" id="njg-VG-xGB"/>
+                                                                        <constraint firstAttribute="bottomMargin" secondItem="VVd-46-hhy" secondAttribute="bottom" constant="-1" id="tmu-rh-NV4"/>
+                                                                        <constraint firstItem="7hH-yh-qj9" firstAttribute="top" secondItem="PBi-iS-QMl" secondAttribute="top" id="uPa-hc-dy7"/>
+                                                                        <constraint firstItem="VVd-46-hhy" firstAttribute="top" secondItem="PBi-iS-QMl" secondAttribute="bottom" constant="8" symbolic="YES" id="yvm-PO-jUb"/>
                                                                     </constraints>
                                                                 </tableViewCellContentView>
                                                                 <connections>
