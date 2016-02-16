@@ -19,6 +19,7 @@
 		847876DF1C6C8D42006682B8 /* MusicVideoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847876DE1C6C8D42006682B8 /* MusicVideoUITests.swift */; };
 		847876EE1C6CCF5F006682B8 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847876ED1C6CCF5F006682B8 /* APIManager.swift */; };
 		84BDA1D21C703654007D960C /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BDA1D11C703654007D960C /* Reachability.m */; };
+		84CBDB271C73626000094F68 /* MusicVideoDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CBDB261C73626000094F68 /* MusicVideoDetailVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		84BDA1CF1C703653007D960C /* MusicVideo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MusicVideo-Bridging-Header.h"; sourceTree = "<group>"; };
 		84BDA1D01C703654007D960C /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		84BDA1D11C703654007D960C /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		84CBDB261C73626000094F68 /* MusicVideoDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicVideoDetailVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				847876C01C6C8D42006682B8 /* ViewController.swift */,
 				846286751C70C64100789D0C /* MusicVideoTableViewCell.swift */,
 				847876C21C6C8D42006682B8 /* Main.storyboard */,
+				84CBDB261C73626000094F68 /* MusicVideoDetailVC.swift */,
 				847876C51C6C8D42006682B8 /* Assets.xcassets */,
 				847876C71C6C8D42006682B8 /* LaunchScreen.storyboard */,
 				847876CA1C6C8D42006682B8 /* Info.plist */,
@@ -309,6 +312,7 @@
 				84BDA1D21C703654007D960C /* Reachability.m in Sources */,
 				846286761C70C64100789D0C /* MusicVideoTableViewCell.swift in Sources */,
 				845D80A51C6F418800604B48 /* Constants.swift in Sources */,
+				84CBDB271C73626000094F68 /* MusicVideoDetailVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
