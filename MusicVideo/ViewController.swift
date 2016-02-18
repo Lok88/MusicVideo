@@ -129,6 +129,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     private struct storyboard {
         static let cellReuseIdentifier = "cell"
+        static let segueIdentifier = "musicDetail"
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -140,6 +141,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == storyboard.segueIdentifier
+        {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let video = videos[indexPath.row]
+                let dvc = segue.destinationViewController as! MusicVideoDetailVC
+                dvc.videos = video
+            }
+        }
+    }
     
     
     
