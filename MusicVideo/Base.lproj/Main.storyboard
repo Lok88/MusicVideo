@@ -404,6 +404,12 @@
                                                         <action selector="valueChanged:" destination="7w4-5p-kHV" eventType="valueChanged" id="ENy-mt-pmm"/>
                                                     </connections>
                                                 </slider>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Drag the slider below" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8t3-7J-O3l">
+                                                    <rect key="frame" x="236" y="8" width="129" height="21"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="ONw-wY-tkg" firstAttribute="centerX" secondItem="3ZE-n7-F61" secondAttribute="centerX" id="1Cs-W2-Xam"/>
@@ -424,7 +430,9 @@
                         <outlet property="APICnt" destination="PHa-AP-HX2" id="4jp-eO-Xsm"/>
                         <outlet property="aboutDisplay" destination="1os-sh-c5Y" id="yAk-fL-SXl"/>
                         <outlet property="bestImageDisplay" destination="oab-6q-YT3" id="Hav-Bm-tV0"/>
+                        <outlet property="dragTheSliderDisplay" destination="8t3-7J-O3l" id="MX0-Ro-vuw"/>
                         <outlet property="feedbackDisplay" destination="1HN-20-eJQ" id="xcI-4w-WW1"/>
+                        <outlet property="numberOfVideosDisplay" destination="PHa-AP-HX2" id="BsY-MN-nug"/>
                         <outlet property="securityDisplay" destination="lAv-RC-VtV" id="NS7-hL-N7H"/>
                         <outlet property="sliderCnt" destination="ONw-wY-tkg" id="Lvb-m4-kch"/>
                         <outlet property="touchID" destination="wua-1a-hRT" id="bdF-h7-cFs"/>
