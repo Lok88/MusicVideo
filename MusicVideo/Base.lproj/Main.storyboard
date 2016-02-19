@@ -172,15 +172,18 @@
                                     <segue destination="7w4-5p-kHV" kind="show" id="Nu9-O5-p7N"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aNA-LH-B8c">
-                                <rect key="frame" x="208" y="506" width="44" height="30"/>
-                                <state key="normal" title="Action"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vc8-Lp-i0x">
                                 <rect key="frame" x="128" y="506" width="30" height="30"/>
                                 <state key="normal" title="Play"/>
                                 <connections>
                                     <action selector="playVideo:" destination="Wu1-o3-rAg" eventType="touchUpInside" id="0RR-lC-xOY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aNA-LH-B8c">
+                                <rect key="frame" x="208" y="506" width="44" height="30"/>
+                                <state key="normal" title="Action"/>
+                                <connections>
+                                    <action selector="socialMedia:" destination="Wu1-o3-rAg" eventType="touchUpInside" id="nXt-eN-46G"/>
                                 </connections>
                             </button>
                         </subviews>
