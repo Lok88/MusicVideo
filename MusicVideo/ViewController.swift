@@ -12,6 +12,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     var videos = [Videos]()
     var limit = 10
+    
+    
+    var refreshControl = UIRefreshControl()
+
+  
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -20,6 +25,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         tableView.dataSource = self
         tableView.delegate = self
+        
+        
+        self.tableView.addSubview(self.refreshControl)
+        self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
+       
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "reachabilityStatusChanged", name: "ReachStatusChanged", object: nil)
         
@@ -66,6 +76,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
            self.presentViewController(alert, animated: true, completion: nil)
         */
         
+        
+        
     }
     
   
@@ -110,8 +122,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     
-    @IBAction func refresh(sender: UIRefreshControl) {
-        refreshControl?.endRefreshing()
+    func refresh(sender: UIRefreshControl) {
+        refreshControl.endRefreshing()
         runAPI()
     }
     
@@ -126,7 +138,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         formatter.dateFormat = "E, dd MMM yyyy HH:mm:ss"
         let refreshDte = formatter.stringFromDate(NSDate())
         
-        refreshControl?.attributedTitle = NSAttributedString(string: "\(refreshDte)")
+        refreshControl.attributedTitle = NSAttributedString(string: "\(refreshDte)")
     }
     
     func runAPI() {
