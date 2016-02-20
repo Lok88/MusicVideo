@@ -71,7 +71,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         // dim the contents in the search
         resultSearchController.dimsBackgroundDuringPresentation = false
-        resultSearchController.searchBar.placeholder = "Search for Artist"
+        resultSearchController.searchBar.placeholder = "Search for Artist, Name, Rank"
         
         // other styles: Default (currently UISearchBarStyleProminent),
         // Prominent (used by Mail, Messages and Contacts),
