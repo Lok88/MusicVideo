@@ -235,10 +235,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     
+    // search for Artist, Name or Rank containing the specified string
     func filterSearch(searchText: String) {
         filterSearch = videos.filter { videos in
-            return videos.vArtist.lowercaseString.containsString(searchText.lowercaseString)
+            return videos.vArtist.lowercaseString.containsString(searchText.lowercaseString) ||
+            videos.vName.lowercaseString.containsString(searchText.lowercaseString) ||
+            "\(videos.vRank)".lowercaseString.containsString(searchText.lowercaseString)
         }
+        
         tableView.reloadData()
     }
     
