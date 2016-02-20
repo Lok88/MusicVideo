@@ -40,6 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         statusChangedWithReachability(reachability!)
     }
     
+    
     func statusChangedWithReachability(currentReachabilityStatus: Reachability) {
         
         let networkStatus: NetworkStatus = currentReachabilityStatus.currentReachabilityStatus()
@@ -53,7 +54,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         NSNotificationCenter.defaultCenter().postNotificationName("ReachStatusChanged", object: nil)
     }
-    
     
     
     func applicationWillResignActive(application: UIApplication) {
@@ -78,9 +78,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         
         NSNotificationCenter.defaultCenter().removeObserver(self, name: kReachabilityChangedNotification, object: nil)
-        
     }
-
-
 }
 

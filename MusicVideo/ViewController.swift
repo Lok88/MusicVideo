@@ -8,15 +8,18 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating {
     
     var videos = [Videos]()
-    var limit = 10
     
+    var filterSearch = [Videos]()
+    
+    let resultSearchController = UISearchController(searchResultsController: nil)
+    
+    var limit = 10
     
     var refreshControl = UIRefreshControl()
 
-  
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -26,17 +29,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.dataSource = self
         tableView.delegate = self
         
-        
         self.tableView.addSubview(self.refreshControl)
         self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
        
-        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "reachabilityStatusChanged", name: "ReachStatusChanged", object: nil)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "preferredFontChanged", name: UIContentSizeCategoryDidChangeNotification, object: nil)
         
         reachabilityStatusChanged()
-        
     }
     
     
@@ -55,7 +55,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             print("name = \(item.vName)")
         }
         
-        
         for (index, item) in videos.enumerate() {
             print("\(index) name = \(item.vName)")
         }
@@ -63,8 +62,24 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.redColor()]
         title = ("The iTunes Top \(limit) Music Videos")
            
+        // Setup the Search Controller
+        // This is related to UISearchResultsUpdating
+        resultSearchController.searchResultsUpdater = self
         
+        // ensure searchBar will not remain on the screen if user navigates to another view
+        definesPresentationContext = true
         
+        // dim the contents in the search
+        resultSearchController.dimsBackgroundDuringPresentation = false
+        resultSearchController.searchBar.placeholder = "Search for Artist"
+        
+        // other styles: Default (currently UISearchBarStyleProminent),
+        // Prominent (used by Mail, Messages and Contacts),
+        // Minimal (used by Calendar, Notes and Music)
+        resultSearchController.searchBar.searchBarStyle = UISearchBarStyle.Prominent
+        
+        // add the search bar to your tableview
+        tableView.tableHeaderView = resultSearchController.searchBar
         
         tableView.reloadData()
         
@@ -76,19 +91,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
            self.presentViewController(alert, animated: true, completion: nil)
         */
         
-        
-        
     }
     
   
     func reachabilityStatusChanged() {
         switch reachabilityStatus {
+            
         case NOACCESS:
             // view.backgroundColor = UIColor.redColor()
             // move back to Main Queue
             dispatch_async(dispatch_get_main_queue()) {
             
-            let alert = UIAlertController(title: "No Internet Access", message: "Please make sure you are connected to the Internet", preferredStyle: .Alert)
+            let alert = UIAlertController(title: "No Internet Access", message: "Please make sure you are connected to the Internet",preferredStyle: .Alert)
             
             let cancelAction = UIAlertAction(title: "Cancel", style: .Default) {
                 action -> () in
@@ -111,22 +125,26 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             }
 
         default:
+            
             // view.backgroundColor = UIColor.greenColor()
             if videos.count > 0 {
                 print("do not refresh API")
             } else {
                 runAPI()
             }
-
         }
     }
     
     
     func refresh(sender: UIRefreshControl) {
         refreshControl.endRefreshing()
-        runAPI()
+        if resultSearchController.active {
+            refreshControl.attributedTitle = NSAttributedString(string: "No refresh allowed in search")
+        } else {
+            runAPI()
+        }
+        
     }
-    
     
     
     func getAPICount() {
@@ -140,6 +158,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         refreshControl.attributedTitle = NSAttributedString(string: "\(refreshDte)")
     }
+    
     
     func runAPI() {
         
@@ -164,6 +183,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if resultSearchController.active {
+            return filterSearch.count
+        }
         return videos.count
     }
     
@@ -172,10 +194,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         static let segueIdentifier = "musicDetail"
     }
     
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(storyboard.cellReuseIdentifier, forIndexPath: indexPath) as! MusicVideoTableViewCell
         
-        cell.video = videos[indexPath.row]
+        if resultSearchController.active {
+            cell.video = filterSearch[indexPath.row]
+        } else {
+            cell.video = videos[indexPath.row]
+        }
 
         return cell
     }
@@ -185,7 +212,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if segue.identifier == storyboard.segueIdentifier
         {
             if let indexPath = tableView.indexPathForSelectedRow {
-                let video = videos[indexPath.row]
+                
+                let video: Videos
+                
+                if resultSearchController.active {
+                    video = filterSearch[indexPath.row]
+                } else {
+                    video = videos[indexPath.row]
+                }
+
                 let dvc = segue.destinationViewController as! MusicVideoDetailVC
                 dvc.videos = video
             }
@@ -193,12 +228,24 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     
+    // Implement protocols for UISearchResultsUpdating
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        searchController.searchBar.text!.lowercaseString
+        filterSearch(searchController.searchBar.text!)
+    }
+    
+    
+    func filterSearch(searchText: String) {
+        filterSearch = videos.filter { videos in
+            return videos.vArtist.lowercaseString.containsString(searchText.lowercaseString)
+        }
+        tableView.reloadData()
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
 

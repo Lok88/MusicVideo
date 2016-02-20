@@ -72,7 +72,6 @@ class Videos {
     
     
     init(data: JSONDictionary) {
-
         
         // Video name
         if let name = data["im:name"] as? JSONDictionary,
@@ -81,7 +80,6 @@ class Videos {
         } else {
             _vName = ""
         }
-        
         
         // Video image
         if let img = data["im:image"] as? JSONArray,
@@ -110,7 +108,6 @@ class Videos {
             _vRights = ""
         }
         
-        
         // Price of Video
         if let price = data["im:price"] as? JSONDictionary,
             vPrice = price["label"] as? String {
@@ -119,16 +116,13 @@ class Videos {
             _vPrice = ""
         }
         
-        
         // The Artist Name
-
         if let artist = data["im:artist"] as? JSONDictionary,
             vArtist = artist["label"] as? String {
                 self._vArtist = vArtist
         } else {
             _vArtist = ""
         }
-
         
         // Artist ID
         if let imid = data["id"] as? JSONDictionary,
@@ -148,7 +142,6 @@ class Videos {
             _vGenre = ""
         }
         
-        
         // Video Link to iTunes
         if let release2 = data["id"] as? JSONDictionary,
             vLinkToiTunes = release2["label"] as? String {
@@ -165,7 +158,5 @@ class Videos {
         } else {
             _vReleaseDte = ""
         }
-
-
     }
 }

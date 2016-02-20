@@ -54,7 +54,6 @@ class MusicVideoDetailVC: UIViewController {
         case true: touchIdChk()
         default: shareMedia()
         }
-        
     }
     
     
@@ -107,7 +106,6 @@ class MusicVideoDetailVC: UIViewController {
                     // Show the alert
                     dispatch_async(dispatch_get_main_queue()) { [unowned self] in
                         self.presentViewController(alert, animated: true, completion: nil)
-
                     }
                 }
                 
@@ -131,7 +129,6 @@ class MusicVideoDetailVC: UIViewController {
             default:
                 alert.message = "Local Authentication not available"
             }
-
         
             // Show the alert
             dispatch_async(dispatch_get_main_queue()) { [unowned self] in
@@ -150,7 +147,6 @@ class MusicVideoDetailVC: UIViewController {
         
         let activityViewController : UIActivityViewController = UIActivityViewController(activityItems: [activity1, activity2, activity3, activity4, activity5], applicationActivities: nil)
 
-        
         // activityViewController.excludedActivityTypes = [UIActivityTypeMail, ]
         
         // activityViewController.excludedActivityTypes = [
@@ -169,7 +165,6 @@ class MusicVideoDetailVC: UIViewController {
         //    UIActivityTypePostToTencentWeibo,
         // ]
         
-       
         activityViewController.completionWithItemsHandler = { (activity, success, items, error) in
             if activity == UIActivityTypeMail {
                 print("eMail selected")
@@ -181,7 +176,6 @@ class MusicVideoDetailVC: UIViewController {
     }
     
     
-    
     @IBAction func playVideo(sender: UIButton) {
         let url = NSURL(string: videos.vVideoUrl)!
         let player = AVPlayer(URL: url)
@@ -191,10 +185,7 @@ class MusicVideoDetailVC: UIViewController {
             playerViewController.player?.play()
         }
     }
-    
-    
-    
-    
+   
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

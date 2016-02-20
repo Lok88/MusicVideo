@@ -54,7 +54,6 @@ class SettingTVC: UITableViewController, MFMailComposeViewControllerDelegate {
             sliderCnt.value = 10.0
             APICnt.text = ("\(Int(sliderCnt.value))")
         }
-        
     }
     
 
@@ -63,6 +62,7 @@ class SettingTVC: UITableViewController, MFMailComposeViewControllerDelegate {
         defaults.setObject(Int(sliderCnt.value), forKey: "APICNT")
         APICnt.text = ("\(Int(sliderCnt.value))")
     }
+    
     
     @IBAction func touchIdSec(sender: UISwitch) {
         let defaults = NSUserDefaults.standardUserDefaults()
@@ -133,6 +133,7 @@ class SettingTVC: UITableViewController, MFMailComposeViewControllerDelegate {
         
     }
     
+    
     func preferredFontChanged() {
         aboutDisplay.font = UIFont.preferredFontForTextStyle(UIFontTextStyleSubheadline)
         feedbackDisplay.font = UIFont.preferredFontForTextStyle(UIFontTextStyleSubheadline)
@@ -143,14 +144,9 @@ class SettingTVC: UITableViewController, MFMailComposeViewControllerDelegate {
         dragTheSliderDisplay.font = UIFont.preferredFontForTextStyle(UIFontTextStyleFootnote)
     }
     
-    
-    
-    
-    
 
     deinit {
 
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIContentSizeCategoryDidChangeNotification, object: nil)
     }
- 
 }
